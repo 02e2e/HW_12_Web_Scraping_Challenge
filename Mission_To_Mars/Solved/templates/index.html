@@ -5,36 +5,72 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Costa Rica Weather</title>
+  <title>Mission to Mars</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
 <body>
-  <div class="container text-center">
-    <h1 class="jumbotron">Favorite Movies</h1>
-    <div>
 
-      <!-- comment  for loop inside html  with a card layout endcomment, this simple code right here can be repeated over and over again -->
-
-      
-      <!-- list needs to match what you have in app.py we took this section from the app.py day 3, 04 -->
-          {% for movie in list %}
-
-          <div class="col-lg-4">
-            <div class="card" style="width: 20rem;">
-                <div class="card-body">
-                  <h4 class="card-title">{{ movie }}</h4>
-                  <h6 class="card-subtitle mb-2 text-muted">Is a top five favorite movie</h6>
-                  <p class="card-text">Search <a href="https://www.imdb.com/" class ="btn btn-primary">IMDB</a> for more info!</p>
-                </div>
-              </div>
-          </div>
-
-          {% endfor %}
-
-
+  <div class="container-fluid">
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+     <p>This webpage was created to show our web-scraping abilities using juypter notebook to scrape, then transfering to a python script, using flask_pymongo to serve up our data scraped to our server on pymongo and to our html.</p>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape Mars Data!</a></p>
+    </div>
+    <h2> Latest Mars News:</h2>
+    <h3>{{mars.Headline}}</h3>
+    <h4>{{mars.Summary}}</h4>
     </div>
   </div>
-</body>
+    <div class ="row"> 
+      <div class = "col-lg-6">
+      <h2> Featured Mars Image: </h2>
+        <img src = "{{mars.Feautured_Mars_Image}}" alt = "Featured Mars Image" style = "width: 500px">
+    </div>
 
+    <div class = "col-lg-6">
+      <div class = "containter col-lg-12 col-md-12">
+      <h2> Mars Facts: </h2>
+        <div class = "table table-striped">
+             {{mars.Mars_Data|safe}}
+        </div>
+      </div>
+    </div> 
+  </div>
+</div> 
+    <div class = "row">
+      <div class ="col-lg-12"> 
+          <h2 class = "text-center"> Mars Hemispheres</h2>
+      </div>
+    </div>
+      <div class = "col-sm-3">
+      <div class = "card"> 
+      <img src = "{{ mars.hemisphere_image_1 }}" style = "width: 500px; height: 500px;">
+      <h4>{{mars.image_1_title}}</h4>
+    </div>
+  </div>
+    <div class = "col-sm-3">
+      <div class = "card"> 
+        <img src = "{{ mars.hemisphere_image_2 }}" style = "width: 500px; height: 500px;">
+        <h4>{{mars.image_2_title}}</h4>
+      </div>
+    </div>
+      <div class = "col-sm-3">
+        <div class = "card"> 
+          <img src = "{{ mars.hemisphere_image_3 }}" style = "width: 500px; height: 500px;">
+          <h4>{{mars.image_3_title}}</h4>
+        </div>
+      </div>
+    </div>
+      <div class = "col-sm-3">
+        <div class = "card"> 
+          <img src = "{{ mars.hemisphere_image_4 }}" style = "width: 500px; height: 500px;">
+          <h4>{{mars.image_4_title}}</h4>
+        </div>
+      </div>
+     </div>
+  </div>
+</body>
 </html>
+
+
