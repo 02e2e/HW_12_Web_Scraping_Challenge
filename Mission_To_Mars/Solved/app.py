@@ -10,7 +10,7 @@ mongo = PyMongo(app, uri="mongodb://localhost:27017/mars_app")
 
 
 # Route to render index.html template using data from Mongo
-# hits home initially, scrape runs once the button is pressed
+#scrape runs once the button is pressed
 @app.route("/")
 def home():
 
@@ -18,7 +18,6 @@ def home():
     mars_find = mongo.db.collection.find_one()
 
     # Return template and data
-    # refer to vacation in the index.html 
     return render_template("index.html", mars=mars_find)
 
 
